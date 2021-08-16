@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.0",
+    "node-schedule": "^2.0.0",
+    "request-json": "^0.6.5",
+    "sequelize": "^6.6.5",
+    "wait-port": "^0.2.9"
+  },
+  "name": "bolt_analytics",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "wait-port db:3306 && node app/index.js",
+    "start.dev": "wait-port db:3306 && nodemon app/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

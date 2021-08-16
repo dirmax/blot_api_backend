@@ -1,0 +1,17 @@
+version: "3"
+
+volumes:
+  db_data: {}
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/node/Dockerfile.dev
+    volumes:
+      - ../:/usr/src/app
+  db:
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"

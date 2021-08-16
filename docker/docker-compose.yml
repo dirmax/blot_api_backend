@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/node/Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    volumes:
+      - ../mysql:/var/lib/mysql
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: bolt_api
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
