@@ -19,3 +19,5 @@ services:
       MYSQL_DATABASE: bolt_api
       MYSQL_USER: user
       MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
