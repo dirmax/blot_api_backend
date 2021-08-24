@@ -11,6 +11,11 @@ schedule.scheduleJob('* * * * *', () => {
     const lng = 21.018335;
 
     clientHttp.get('categoriesOverview/?deviceType=iphone&lat=' + lat + '&gps_lng=' + lng + '&version=CI.26.1&device_os_version=iOS14.6&language=ru&device_name=iPhone12,3&deviceId=F6895050-69DD-4062-BEE1-8D8E0C3A1C27&gps_lat=' + lat +'&lng=' + lng, function(err, res, body) {
+        if (!body.data) {
+            console.log('App: response is unknown, body: ', body)
+            return;
+        }
+
         const vehiclesAPI = body.data.categories[0].vehicles;
         const cityId = body.data.city_id;
 
